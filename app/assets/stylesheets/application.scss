@@ -1,0 +1,69 @@
+@import "uikit-mixins";
+@import "uikit-variables";
+@import "uikit";
+@import "uikit-components";
+@import "materialize";
+
+.background {
+  background-image: url(welcome.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.planePath {
+  stroke: white;
+  stroke-width: 0;
+  stroke-width: 0;
+  stroke-dasharray: 0 0;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.fil1 {
+  fill: white;
+}
+
+.fil2 {
+  fill: #C5C6C6;
+}
+
+.fil4 {
+  fill: #9D9E9E;
+}
+
+.fil3 {
+  fill: #AEAFB0;
+}
+
+.heading {
+  text-align: center;
+}
+.enter {
+  width: 200px;
+  text-align:center;
+  border: 5px solid black;
+  border-radius: 5%;
+}
+
+h1 {
+  font-size: 150px;
+ background: -webkit-linear-gradient(#FFA5B4, rgb(254, 161, 81));
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+  outline: white;
+  font-family: 'Pacifico', cursive;
+}
+
+h2 {
+  background:black;;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+   outline: white;
+   font-family: 'Pacifico', cursive;
+}
