@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'activestorage'
 gem "aws-sdk-s3", require: false
 
-ruby '2.4.1'
+ruby '2.5.1'
 gem 'devise', '~> 4.4.3'
 gem "paperclip", "~> 6.0.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

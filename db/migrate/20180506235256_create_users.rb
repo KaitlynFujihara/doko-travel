@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-class AddDeviseToUsers < ActiveRecord::Migration[5.2]
+class CreateUsers < ActiveRecord::Migration[5.2]
   create_table :users
   def self.up
     change_table :users do |t|
@@ -49,4 +47,4 @@ class AddDeviseToUsers < ActiveRecord::Migration[5.2]
     # model already existed. Please edit below which fields you would like to remove in this migration.
     raise ActiveRecord::IrreversibleMigration
   end
-end
+end  
