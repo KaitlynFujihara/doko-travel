@@ -1,0 +1,10 @@
+<nav>
+  <div class="nav-wrapper">
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a>Welcome, <%= current_user.email %></a></li>
+      <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+    </ul>
+  </div>
+</nav>
+
+<h1>welcome back</h1>

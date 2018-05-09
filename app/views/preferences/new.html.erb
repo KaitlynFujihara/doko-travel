@@ -1,0 +1,16 @@
+<nav>
+  <div class="nav-wrapper">
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a>Welcome, <%= current_user.email %></a></li>
+      <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+    </ul>
+  </div>
+</nav>
+<h1>Doko Travel</h1>
+<div class="length">
+  <h3>How long will you be traveling?</h3>
+  <%= form_for [@account, @preference] do |f| %>
+    <%= f.number_field :length, :class => "form-length", placeholder: "days" %>
+    <%= f.submit "Go",  :class => "waves-effect waves-light btn" %>
+  <% end %>
+</div>

@@ -121,3 +121,42 @@ h3 {
 html {
   background-color: rgb(173, 211, 222);
 }
+
+/* Popup container */
+.popup {
+    position: relative;
+    display: inline-block;
+    display: none;
+    height: auto;
+    width: 500px;
+    background-color: white;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    h3 {
+      font-family: 'Raleway';
+      text-align: center;
+      color: black;
+    }
+}
+.length {
+  width: 400px;
+  position: relative;
+  display: inline-block;
+  display: none;
+  height: auto;
+  background-color: white;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  h3 {
+    font-family: 'Raleway';
+    text-align: center;
+    color: black;
+  }
+}
+.form-length {
+  text-align: center;
+}
