@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2018_05_11_201229) do
   end
 
   create_table "cities", force: :cascade do |t|
-    t.integer "name"
+    t.string "name"
     t.string "description"
     t.string "length"
     t.datetime "created_at", null: false

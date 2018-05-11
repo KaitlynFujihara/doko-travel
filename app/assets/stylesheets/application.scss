@@ -161,7 +161,7 @@ html {
   text-align: center;
 }
 
-//add city page
+//admin add city page
 .addcity {
   width: 30%;
   margin: 0 auto;
@@ -173,4 +173,14 @@ html {
     font-family: 'Raleway';
     font-size: 15px;
   }
+}
+//admin show cities page
+.showcities {
+  width: 800px;
+  text-align: center;
+  height: auto;
+  background-color: white;
+  padding: 10px;
+  margin: 0 auto;
+  display:block;
 }
