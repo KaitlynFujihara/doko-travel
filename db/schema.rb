@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_11_220852) do
+ActiveRecord::Schema.define(version: 2018_05_11_230509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,12 +43,12 @@ ActiveRecord::Schema.define(version: 2018_05_11_220852) do
     t.string "length"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "interests_id"
-    t.index ["interests_id"], name: "index_cities_on_interests_id"
   end
 
   create_table "interests", force: :cascade do |t|
     t.string "interest_title"
+    t.bigint "cities_id"
+    t.index ["cities_id"], name: "index_interests_on_cities_id"
   end
 
   create_table "preferences", force: :cascade do |t|
@@ -80,5 +80,5 @@ ActiveRecord::Schema.define(version: 2018_05_11_220852) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "cities", "interests", column: "interests_id"
+  add_foreign_key "interests", "cities", column: "cities_id"
 end

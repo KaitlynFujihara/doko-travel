@@ -9,28 +9,15 @@
 </nav>
 <%= render('layouts/errors', :object => @city) %>
 <h1>New City</h1>
-<div class=row>
-  <div class="col s8">
-    <div class="addcity">
-      <%= form_for [@city] do |f| %>
-        <p><%= f.label :name %>
-        <%= f.text_field :name %>
-        <%= f.label :description %>
-        <%= f.text_area :description %>
-        <%= f.label :length %>
-        <%= f.text_field :length %>
-        <%= f.collection_select(:interests_id, Interest.all, :id, :interest_title)%>
-      <%= f.submit nil, class: "waves-effect waves-light btn" %>
-      <% end %>
-    </div>
-  </div>
-  <div class="col s4">
-    <div class="interest">
-      <%= form_for [@interest] do |f| %>
-        <p><%= f.label :interest %>
-        <%= f.text_field :interest_title %>
-        <%= f.submit nil, class: "waves-effect waves-light btn" %>
-      <% end %>
-    </div>
-  </div>
+<div class="addcity">
+  <%= form_for [@city] do |f| %>
+    <%= f.hidden_field :cities_id, :value => @city.id %>
+    <p><%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    <%= f.label :length %>
+    <%= f.text_field :length %>
+  <%= f.submit nil, class: "waves-effect waves-light btn" %>
+  <% end %>
 </div>

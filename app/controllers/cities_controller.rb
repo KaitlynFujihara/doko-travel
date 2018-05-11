@@ -5,25 +5,23 @@ class CitiesController < ApplicationController
     end
   def index
     @cities = City.all
-    @interests = Interest.all
   end
   def new
     @city = City.new
-    @cities = City.all
-    @interest= Interest.new
-    @interests = Interest.all
   end
   def create
-   @city = City.new(city_params)
-   flash[:notice] = "#{@city.name} was added to the database!"
-   if @city.save
-     redirect_to  welcome_index_path
-   else
-     render :new
+    @city = City.new(city_params)
+    flash[:notice] = "#{@city.name} was added to the database!"
+    if @city.save
+      redirect_to  cities_path
+    else
+      render :new
    end
  end
  def edit
    @city= City.find(params[:id])
+   @interests = Interest.all
+   @interest = Interest.new
    render :edit
  end
  def update
