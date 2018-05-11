@@ -5,10 +5,13 @@ class CitiesController < ApplicationController
     end
   def index
     @cities = City.all
+    @interests = Interest.all
   end
   def new
     @city = City.new
     @cities = City.all
+    @interest= Interest.new
+    @interests = Interest.all
   end
   def create
    @city = City.new(city_params)

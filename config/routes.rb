@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :welcome
   resources :main
   resources :cities
-
+  resources :interests
   resources :accounts do
     resources :preferences
   end
