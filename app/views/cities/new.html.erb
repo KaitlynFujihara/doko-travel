@@ -10,5 +10,16 @@
     </ul>
   </div>
 </nav>
-
-<h1>welcome back</h1>
+<%= render('layouts/errors', :object => @city) %>
+<h1>New City</h1>
+<div class="addcity">
+  <%= form_for [@city] do |f| %>
+    <p><%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    <%= f.label :length %>
+    <%= f.text_field :length %>
+  <%= f.submit nil, class: "waves-effect waves-light btn" %>
+  <% end %>
+</div>

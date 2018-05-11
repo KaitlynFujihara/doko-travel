@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
-  devise_for :admins, path: 'admin' 
+  devise_for :admins, path: 'admin'
   devise_for :users, controllers: { registrations: "registrations" }
 
   root :to => 'welcomes#index'
   resources :welcomes
   resources :welcome
   resources :main
-  resources :add_destinations
+  resources :cities
 
   resources :accounts do
     resources :preferences
