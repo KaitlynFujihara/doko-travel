@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'activestorage'
 gem "aws-sdk-s3", require: false
-
+gem "httparty"
+gem 'rest-client'
 ruby '2.5.1'
 gem 'devise', '~> 4.4.3'
 gem "paperclip", "~> 6.0.0"
@@ -60,6 +61,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'simplecov', require: false
   gem "letter_opener"
+  gem 'dotenv-rails'
 end
 
 

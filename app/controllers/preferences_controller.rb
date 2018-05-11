@@ -1,6 +1,10 @@
 class PreferencesController < ApplicationController
   def index
     @preferences = current_account.preferences
+    city = params[:name]
+    @cities = Cities.search(name)
+    json_response(@cities)
+end
   end
   def new
     @account = current_account
