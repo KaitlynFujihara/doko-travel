@@ -19,29 +19,29 @@ class CitiesController < ApplicationController
      render :new
    end
  end
- # def edit
- #   @product= Product.find(params[:id])
- #   render :edit
- # end
- # def update
- #   @product= Product.find(params[:id])
- #   if @product.update(product_params)
- #     flash[:notice] = "#{@product.name} was updated!"
- #     redirect_to products_path
- #   else
- #     render :edit
- #     end
- #   end
- # def destroy
- #   @product = Product.find(params[:id])
- #   @product.destroy
- #    flash[:notice] = "#{@product.name} was deleted."
- #   redirect_to products_path
- # end
- # def show
- #   @product = Product.find(params[:id])
- #   render :show
- # end
+ def edit
+   @city= City.find(params[:id])
+   render :edit
+ end
+ def update
+   @city= City.find(params[:id])
+   if @city.update(city_params)
+     flash[:notice] = "#{@city.name} was updated!"
+     redirect_to cities_path
+   else
+     render :edit
+     end
+   end
+ def destroy
+   @city = City.find(params[:id])
+   @city.destroy
+    flash[:notice] = "#{@city.name} was deleted."
+   redirect_to cities_path
+ end
+ def show
+   @city = City.find(params[:id])
+   render :show
+ end
  private
  def city_params
    params.require(:city).permit(:name, :description, :length)

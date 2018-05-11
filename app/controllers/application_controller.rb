@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource_or_scope)
     if current_user.admin = true
-      welcome_index_path
+      cities_path
     else
       welcome_index_path
   end

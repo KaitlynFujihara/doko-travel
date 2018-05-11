@@ -3,12 +3,11 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><a>Welcome, <%= current_user.email %></a></li>
       <li><%= link_to  "Admin Portal", cities_path %> </li>
+      <li><%= link_to  "Add New City", new_city_path %> </li>
       <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
     </ul>
   </div>
 </nav>
-<%= render('layouts/errors', :object => @city) %>
-<h1>New City</h1>
 <div class="addcity">
   <%= form_for [@city] do |f| %>
     <p><%= f.label :name %>

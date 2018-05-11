@@ -2,21 +2,8 @@
   <div class="nav-wrapper">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><a>Welcome, <%= current_user.email %></a></li>
-      if
-      <% if current_user.admin == true %>
-      <li><%= link_to  "Admin Portal", new_city_path %> </li>
-      <% end %>
       <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
     </ul>
   </div>
 </nav>
-
 <h1>welcome back</h1>
-<% if current_user.admin == true %>
-<div class="showcities">
-  <% @cities.each do |city| %>
-    <h3> <%= city.name %>: <%=city.length%> days </h3>
-    <p> <%= city.description %> </p>
-  <% end %>
-</div>
-<% end %>

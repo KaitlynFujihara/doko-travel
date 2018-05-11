@@ -1,0 +1,19 @@
+<nav>
+  <div class="nav-wrapper">
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a>Welcome, <%= current_user.email %></a></li>
+      <li><%= link_to  "Admin Portal", cities_path %> </li>
+      <li><%= link_to  "Add New City", new_city_path %> </li>
+      <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+    </ul>
+  </div>
+</nav>
+<div class="showcities">
+  <h3><%= @city.name %></h3>
+  <h4>Recommended Stay: <%=@city.length%> days</h4>
+  <p><%= @city.description %></p>
+  <p><%= link_to "Edit", edit_city_path(@city) %> |
+    <%= link_to "Delete City", city_path(@city),
+                        :data => {:confirm => "Are you sure?",
+                                       :method => "delete"} %></p>
+</div>
