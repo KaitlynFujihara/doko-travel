@@ -3,6 +3,7 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><a>Welcome, <%= current_user.email %></a></li>
       <li><%= link_to  "Admin Portal", cities_path %> </li>
+      <li><%= link_to  "Manage Categories", new_interest_path %> </li>
       <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
     </ul>
   </div>
@@ -11,8 +12,8 @@
 <h1>New City</h1>
 <div class="addcity">
   <%= form_for [@city] do |f| %>
-    <%= f.hidden_field :cities_id, :value => @city.id %>
     <p><%= f.label :name %>
+      <%= f.hidden_field :city_id, value: @city.id %>
     <%= f.text_field :name %>
     <%= f.label :description %>
     <%= f.text_area :description %>

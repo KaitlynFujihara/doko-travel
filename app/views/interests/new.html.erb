@@ -4,18 +4,21 @@
       <li><a>Welcome, <%= current_user.email %></a></li>
       <li><%= link_to  "Admin Portal", cities_path %> </li>
       <li><%= link_to  "Add New City", new_city_path %> </li>
-      <li><%= link_to  "Manage Categories", new_interest_path %> </li>
       <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
     </ul>
   </div>
 </nav>
-<h2>Edit <%= @city.name %></h2>
-<div class="editcity">
-  <%= form_for [@city] do |f| %>
-    <p><%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-    <%= f.label :length %>
-    <%= f.text_field :length %>
+<div class="interests">
+  <h1>Add Categories</h1>
+  <%= form_for @interest, {controller: "interests", action: "new"} do |f| %>
+    <p><%= f.label :interest_title %>
+    <%= f.text_field :interest_title%>
+  <%= f.submit nil, class: "waves-effect waves-light btn" %>
+  <% end %>
+</div>
+<h2><% @interests.each do |f| %>
+<%= f.interest_title %>
+<% end %>
+</h2>
+<div id="interest_all">
 </div>

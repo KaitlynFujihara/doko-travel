@@ -1,35 +1,37 @@
 class InterestsController < ApplicationController
+  before_action :authenticate_user!
+    before_action do
+      redirect_to root_path unless current_user && current_user.admin?
+    end
   def new
-    @city = City.find(params[:cities_id])
-    @interest = @city.interests.new
+    @interest = Interest.new
+    @interests = Interest.all
   end
 
   def create
-    @city = City.find(params[:interest][:id])
-    @interest = @city.interests.create(params[:interest])
-      if @interest.save
-      flash[:notice] = "Interest successfully added!"
+    @interest = Interest.new(interest_params)
+    flash[:notice] = "Interest successfully added!"
+    if @interest.save
       respond_to do |format|
-        format.html { redirect_to @city) }
-        format.js
+        format.html
+        format.js { render :file => "create.js.erb" }
+        redirect_to new_interest_path
       end
     else
-      render :new
+      redirect_to new_interest_path
     end
   end
 
   def edit
-    @city = City.find(params[:cities_id])
     @interest = Interest.find(params[:id])
   end
 
   def update
-    @city = City.find(params[:cities_id])
     @interest = Interest.find(params[:id])
     if @interest.update(interest_params)
       flash[:notice] = "Interest successfully updated!"
       respond_to do |format|
-        format.html { redirect_to city_path(@interest.city) }
+        format.html
         format.js
       end
     else
@@ -46,7 +48,6 @@ class InterestsController < ApplicationController
 
   private
   def interest_params
-    params.require(:interest).permit(:interest_title, :cities_id)
+    params.require(:interest).permit(:interest_title)
   end
-
 end

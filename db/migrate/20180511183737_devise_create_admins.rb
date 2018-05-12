@@ -1,4 +1,3 @@
-eb
 class DeviseCreateAdmins < ActiveRecord::Migration[5.2]
   def self.up
     create_table(:admins) do |t|

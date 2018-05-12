@@ -12,6 +12,7 @@ class User < ApplicationRecord
 
          private
 
+
          def create_account
            @user = User.last
            account = Account.new

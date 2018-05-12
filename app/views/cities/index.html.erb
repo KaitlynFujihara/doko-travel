@@ -3,6 +3,7 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><a>Welcome, <%= current_user.email %></a></li>
       <li><%= link_to  "Add New City", new_city_path %> </li>
+      <li><%= link_to  "Manage Categories", new_interest_path %> </li>
       <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
     </ul>
   </div>

@@ -20,8 +20,6 @@ class CitiesController < ApplicationController
  end
  def edit
    @city= City.find(params[:id])
-   @interests = Interest.all
-   @interest = Interest.new
    render :edit
  end
  def update
@@ -41,6 +39,8 @@ class CitiesController < ApplicationController
  end
  def show
    @city = City.find(params[:id])
+   @interests = Interest.all
+   @interest =Interest.new
    render :show
  end
  private
