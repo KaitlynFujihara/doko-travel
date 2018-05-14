@@ -16,9 +16,13 @@
   <%= f.submit nil, class: "waves-effect waves-light btn" %>
   <% end %>
 </div>
-<h2><% @interests.each do |f| %>
-<%= f.interest_title %>
+
+<% @interests.each do |interest| %>
+  <%= form_for interest, remote:true do |f| %>
+  <%= f.hidden_field :interest_id, value: @interest.id %>
+  <span class='waves-effect waves-light btn'>
+    <% f.submit %>
+    <%= interest.interest_title %>
+  </span>
+  <% end %>
 <% end %>
-</h2>
-<div id="interest_all">
-</div>
