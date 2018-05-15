@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   devise_for :admins, path: 'admin'
   devise_for :users, controllers: { registrations: "registrations" }
 
-  root :to => 'welcomes#index'
-  resources :welcomes
+  root :to => 'home#index'
   resources :welcome
   resources :main
   resources :cities

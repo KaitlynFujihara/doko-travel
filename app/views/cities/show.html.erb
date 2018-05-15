@@ -16,5 +16,18 @@
   <p><%= link_to "Edit", edit_city_path(@city) %> |
     <%= link_to "Delete City", city_path(@city),
                         :data => {:confirm => "Are you sure?",
+
                                        :method => "delete"} %></p>
+<h2>Current Interests</h2>
+<% @city.interests.each do |x| %>
+<%= x.interest_title %>
+<% end%>
+
+<h2>Add Interests</h2>
+  <%= form_for @city do |f| %>
+  <%= f.collection_select :interest_ids, Interest.all, :id, :interest_title, { :multiple => true, :size => 6 } %>
+  <br>
+ <%= f.submit nil, class: "waves-effect waves-light btn" %>
+ <% end %>
+
 </div>

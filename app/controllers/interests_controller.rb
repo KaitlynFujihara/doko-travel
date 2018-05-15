@@ -43,11 +43,11 @@ class InterestsController < ApplicationController
     @interest = Interest.find(params[:id])
     @interest.destroy
     flash[:notice] = "Interest successfully deleted."
-    redirect_to city_path(@interest.city)
+    redirect_to new_interest_path
   end
 
   private
   def interest_params
-    params.require(:interest).permit(:interest_title)
+    params.require(:interest).permit(:interest_title, :city_id)
   end
 end

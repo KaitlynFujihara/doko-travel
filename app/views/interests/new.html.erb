@@ -8,21 +8,23 @@
     </ul>
   </div>
 </nav>
+  <h1>Add Interest</h1>
 <div class="interests">
-  <h1>Add Categories</h1>
   <%= form_for @interest, {controller: "interests", action: "new"} do |f| %>
     <p><%= f.label :interest_title %>
     <%= f.text_field :interest_title%>
   <%= f.submit nil, class: "waves-effect waves-light btn" %>
   <% end %>
-</div>
-
-<% @interests.each do |interest| %>
-  <%= form_for interest, remote:true do |f| %>
-  <%= f.hidden_field :interest_id, value: @interest.id %>
-  <span class='waves-effect waves-light btn'>
-    <% f.submit %>
-    <%= interest.interest_title %>
-  </span>
+<h3>Current Interests</h3>
+    <% @interests.each do |interest| %>
+    <div id="interest-list">
+    <%= form_for interest, remote:true do |f| %>
+    <%= f.hidden_field :interest_id, value: @interest.id %>
+    <span class='waves-effect waves-light btn'>
+      <% f.submit %>
+      <%= interest.interest_title %>
+    </span>
+    <% end %>
   <% end %>
-<% end %>
+  </div>
+</div>

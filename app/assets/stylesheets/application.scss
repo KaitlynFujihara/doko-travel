@@ -4,6 +4,7 @@
 @import "uikit-components";
 @import "materialize";
 
+
 //first page and second page
 .background {
   background-image: url(welcome.jpg);
@@ -20,7 +21,7 @@
 //first page and second page (buttons)
 .waves-effect {
   background: -webkit-linear-gradient(rgb(254, 161, 81), #FFA5B4);
-  width: 200px;
+  width: auto;
   font-size: 20px;
   font-family: 'Raleway', sans-serif;
 
@@ -214,4 +215,21 @@ html {
   textarea {
     height: 200px;
   }
+}
+
+// admin interests
+.interests {
+  width: 500px;
+  background-color: white;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+}
+
+#interest-list {
+  margin: 10px auto;
+}
+
+select{
+ display: block;
 }

@@ -4,7 +4,6 @@ class PreferencesController < ApplicationController
     city = params[:name]
     @cities = Cities.search(name)
     json_response(@cities)
-end
   end
   def new
     @account = current_account

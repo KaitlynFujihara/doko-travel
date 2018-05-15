@@ -1,5 +1,5 @@
 class City < ActiveRecord::Base
-has_many :interests
+has_and_belongs_to_many :interests
 
  validates :name, :presence => true
  validates :description, :presence => true
