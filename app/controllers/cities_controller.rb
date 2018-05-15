@@ -49,9 +49,8 @@ end
  def show
    @city = City.find(params[:id])
    @interests = Interest.all
-   render :show
  end
-
+ 
 private
  def city_params
    params.require(:city).permit(:name, :description, :length, :interest_id)

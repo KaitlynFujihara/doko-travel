@@ -20,14 +20,12 @@
                                        :method => "delete"} %></p>
 <h2>Current Interests</h2>
 <% @city.interests.each do |x| %>
-<%= x.interest_title %>
+<%= x.interest_title %><br>
 <% end%>
-
 <h2>Add Interests</h2>
-  <%= form_for @city do |f| %>
-  <%= f.collection_select :interest_ids, Interest.all, :id, :interest_title, { :multiple => true, :size => 6 } %>
+  <%= form_for @city do |f|  %>
+  <%= f.collection_select :interest_ids, Interest.all, :id, :interest_title,{ class: "browser-default"},{ :multiple => true } %>
   <br>
  <%= f.submit nil, class: "waves-effect waves-light btn" %>
  <% end %>
-
 </div>

@@ -1,0 +1,18 @@
+<nav>
+  <div class="nav-wrapper">
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><p>Welcome, <%= current_user.email %></p></li>
+      <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+    </ul>
+  </div>
+</nav>
+<h3>Account Details</h3>
+<div class="length">
+  <% @account.preferences.each do |t| %>
+    <p><%= t.length %> days</p>
+    <% t.interests.each do |x| %>
+    <p><%= x.interest_title %></p>
+    <%end%>
+    <p><%= t.firsttime %></p>
+  <% end %>
+</div>

@@ -1,7 +1,8 @@
 <nav>
   <div class="nav-wrapper">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a>Welcome, <%= current_user.email %></a></li>
+      <li>Welcome, <%= current_user.email %></li>
+      <li><%= link_to "Profile", account_preferences_path(current_account) %></li>
       <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
 </li>
     </ul>

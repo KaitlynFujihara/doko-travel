@@ -1,11 +1,12 @@
 class PreferencesController < ApplicationController
   def index
-    @preferences = current_account.preferences
-    city = params[:name]
-    @cities = Cities.search(name)
-    json_response(@cities)
+    @account = current_account
+    @interests = Interest.all
+    @preferences = @account.preferences
   end
+
   def new
+    @interests = Interest.all
     @account = current_account
     @preference = Preference.new
     respond_to do |format|
@@ -13,16 +14,19 @@ class PreferencesController < ApplicationController
     format.js { render 'index.js.erb' }
     end
   end
+
   def create
+    @interests= Interest.all
     @account = current_account
+  session[:user_id] = @account.id
      if defined?(session[:user_id])
        @preference = @account.preferences.new(preference_params)
-     else
-      flash[:notice] = "Post unsuccessful! Please sign in first!"
+       @preference.interest_ids = params[:preference][:interest_ids]
+       @preference.save
+       redirect_to account_preferences_path
     end
-    render :new
   end
   def preference_params
-    params.require(:preference).permit(:length, :interest, :mustdos)
+    params.require(:preference).permit(:length, :firsttime, :interest_id)
   end
 end

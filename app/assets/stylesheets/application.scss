@@ -114,7 +114,7 @@ h3 {
 //main page
 .nav-wrapper {
   background-color: white;
-  a {
+  p, a {
   color: darkgray;
 }
 }
@@ -144,8 +144,7 @@ html {
 .length {
   width: 400px;
   position: relative;
-  display: inline-block;
-  display: none;
+  display:block;
   height: auto;
   background-color: white;
   margin: 0 auto;
@@ -229,7 +228,11 @@ html {
 #interest-list {
   margin: 10px auto;
 }
-
 select{
- display: block;
+  display: block;
+  // height: 250px !important;
+}
+
+.browser-default {
+  height: 250px !important;
 }

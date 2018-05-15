@@ -1,10 +1,11 @@
 <nav>
   <div class="nav-wrapper">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a>Welcome, <%= current_user.email %></a></li>
       <% if current_user.admin == true %>
       <li><%= link_to "Admin Portal", cities_path %></li>
       <% end %>
+      <li><p>Welcome, <%= current_user.email %><p></li>
+      <li><%= link_to "Profile", account_preferences_path(current_account) %></li>
       <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
     </ul>
   </div>

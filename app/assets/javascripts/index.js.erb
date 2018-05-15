@@ -1,5 +1,10 @@
 window.onload = function() {
  $('.popup').fadeIn();
  $('.length').fadeIn();
+ var formsInit = function() {
+     $('select').material_select();
+ };
+ $(document).ready(formsInit) //standard jQuery behavior
+ $(document).on('page:load', formsInit) //adaptation to turbolinks
 
 };
