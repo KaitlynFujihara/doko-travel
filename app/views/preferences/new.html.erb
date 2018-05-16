@@ -6,16 +6,18 @@
     </ul>
   </div>
 </nav>
-<h1>Doko Travel</h1>
 <div class="length">
   <%= form_for [@account, @preference] do |f| %>
-    <h3>Have you been to Japan before?</h3>
+    <h3>Is this your first trip to Japan?</h3>
     <%= f.select :firsttime,['Yes', 'No'] %>
   <h3>How long will you be traveling?</h3>
   <%= f.number_field :length, :class => "form-length", placeholder: "days" %>
-  <h3>What are you most interest in?</h3>
+  <h3>What are you most interested in?</h3>
   <%= f.collection_select :interest_ids, Interest.all, :id, :interest_title,{ class: "browser-default"}, { :multiple => true } %>
   <br>
   <%= f.submit "Go",  :class => "waves-effect waves-light btn" %>
 <% end %>
+</div>
+<div class="background2">
+
 </div>

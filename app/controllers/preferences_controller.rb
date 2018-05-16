@@ -1,7 +1,10 @@
 class PreferencesController < ApplicationController
+  helper_method :tokyo_checker
   def index
     @account = current_account
+    @preference = Preference.new
     @interests = Interest.all
+    @cities = City.all
     @preferences = @account.preferences
   end
 
@@ -23,8 +26,12 @@ class PreferencesController < ApplicationController
        @preference = @account.preferences.new(preference_params)
        @preference.interest_ids = params[:preference][:interest_ids]
        @preference.save
-       redirect_to account_preferences_path
     end
+    @itinerary = @account.itinerary
+    @length = @preference.length.to_i
+    @firsttime = @preference.firsttime
+    @account.city_checker(@length, @firsttime)
+    redirect_to account_preferences_path
   end
   def preference_params
     params.require(:preference).permit(:length, :firsttime, :interest_id)
