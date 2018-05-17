@@ -5,7 +5,7 @@ class CitiesController < ApplicationController
     end
 
   def index
-    @account = current_account
+    @account = current_account.id
     @cities = City.all
     @interests = Interest.all
     @preference= Preference.first
@@ -59,7 +59,7 @@ end
    @city = City.find(params[:id])
    @interests = Interest.all
    @preference= Preference.first
-
+   @account = current_account
  end
 
 private

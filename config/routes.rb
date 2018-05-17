@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :main
   resources :cities
   resources :interests
-  resources :itineraries
+  resources :itineraries do
+    resources :ratings
+  end
   resources :accounts do
     resources :preferences
   end

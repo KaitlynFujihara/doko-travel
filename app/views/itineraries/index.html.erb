@@ -17,15 +17,13 @@
 <div class="container">
 <% @itineraries.each do |t| %>
   <h3><a><%=link_to t.title, itinerary_path(t) %></a></h3>
-  <h5>Created by: <%= t.creator %>
-  </h5>
+    <h4><% t.cities.each do |f| %>
+  |<%= f.name %>|<% end %></h4>
+  <h6>Created by: <%= t.creator %></h6>
   <p>Recommended Duration: <%= t.length %> days </p>
   <p><%= t.description %><p>
-    <% t.cities.each do |f| %>
-    <%= f.name %>
-    <% end %>
-    <% t.interests.each do |f| %>
-    <%= f.interest_title %>
+  <p>Interests: </p><% t.interests.each do |f| %>
+    |<%= f.interest_title %>|
     <% end %>
   <hr>
 <% end %>

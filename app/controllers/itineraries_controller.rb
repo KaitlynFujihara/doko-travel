@@ -65,6 +65,7 @@ end
    @interests = Interest.all
    @cities = City.all
    @account = current_account
+   @rating = @itinerary.ratings.new :value => params[:value]
  end
 
 private

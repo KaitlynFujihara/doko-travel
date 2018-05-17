@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_17_061649) do
+ActiveRecord::Schema.define(version: 2018_05_17_072103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,11 @@ ActiveRecord::Schema.define(version: 2018_05_17_061649) do
     t.boolean "firsttime"
     t.integer "account_id"
     t.integer "interest_id"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer "value"
+    t.integer "itinerary_id"
   end
 
   create_table "users", force: :cascade do |t|
