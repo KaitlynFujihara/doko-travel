@@ -4,7 +4,6 @@
 @import "uikit-components";
 @import "materialize";
 
-
 //first page and second page
 .background {
   background-image: url(welcome.jpg);
@@ -163,7 +162,7 @@ html {
 }
 
 //admin add city page
-.addcity {
+.addcity, .additinerary {
   width: 50%;
   margin: 0 auto;
   display: block;

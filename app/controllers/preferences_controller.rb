@@ -21,16 +21,12 @@ class PreferencesController < ApplicationController
   def create
     @interests= Interest.all
     @account = current_account
-  session[:user_id] = @account.id
+    session[:user_id] = @account.id
      if defined?(session[:user_id])
        @preference = @account.preferences.new(preference_params)
        @preference.interest_ids = params[:preference][:interest_ids]
        @preference.save
     end
-    @itinerary = @account.itinerary
-    @length = @preference.length.to_i
-    @firsttime = @preference.firsttime
-    @account.city_checker(@length, @firsttime)
     redirect_to account_preferences_path
   end
   def preference_params

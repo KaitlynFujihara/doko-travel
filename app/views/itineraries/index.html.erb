@@ -3,23 +3,16 @@
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><p>Welcome, <%= current_user.email %></p></li>
       <li><%= link_to "Home", welcome_index_path %></p></li>
+      <li><%= link_to  "View Itineraries", itineraries_path %> </li>
       <li><%= link_to  "Add New Itinerary", new_itinerary_path %> </li>
       <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
     </ul>
   </div>
 </nav>
-<h2>Account Details</h2>
-<div class="length">
-  <% @account.preferences.each do |t| %>
-    <h5>Trip Duration:</h5>
-    <p><%= t.length %> days</p>
-    <h5>Interests:</h5>
-    <% t.interests.each do |x| %>
-    <p><%= x.interest_title %></p>
-    <%end%>
-    <h5>This is my first time to Japan:</h5>
-    <p><%= t.firsttime %></p>
-  <% end %>
-</div>
-<div class="background2">
-</div>
+<% @itineraries.each do |t| %>
+  <%= t.title %>
+  <%= t.length %>
+  <%= t.description %>
+<hr>
+
+<% end %>

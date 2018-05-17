@@ -48,6 +48,6 @@ class InterestsController < ApplicationController
 
   private
   def interest_params
-    params.require(:interest).permit(:interest_title, :city_id, :preference_id)
+    params.require(:interest).permit(:interest_title, :city_id, :itinerary_id)
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_16_175018) do
+ActiveRecord::Schema.define(version: 2018_05_16_203702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2018_05_16_175018) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "preference_id"
-    t.string "itinerary", default: [], array: true
+    t.string "itineraries", array: true
   end
 
   create_table "admins", force: :cascade do |t|
@@ -51,7 +51,18 @@ ActiveRecord::Schema.define(version: 2018_05_16_175018) do
 
   create_table "interests", force: :cascade do |t|
     t.string "interest_title"
-    t.integer "preference_id"
+  end
+
+  create_table "interests_itineraries", force: :cascade do |t|
+    t.integer "interest_id"
+    t.integer "itinerary_id"
+  end
+
+  create_table "itineraries", force: :cascade do |t|
+    t.integer "account_id"
+    t.integer "length"
+    t.string "title"
+    t.string "description"
   end
 
   create_table "preferences", force: :cascade do |t|
