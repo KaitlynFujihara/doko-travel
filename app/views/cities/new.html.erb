@@ -1,21 +1,19 @@
 <nav>
   <div class="nav-wrapper">
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><p>Welcome, <%= current_user.email %></p></li>
       <% if current_user.admin == true %>
       <li><%= link_to  "View Cities", cities_path %> </li>
-      <li><%= link_to  "Add New City", new_city_path %> </li>
       <li><%= link_to  "Manage Categories", new_interest_path %> </li>
       <% end %>
       <li><%= link_to  "View Itineraries", itineraries_path %> </li>
       <li><%= link_to  "Add New Itinerary", new_itinerary_path %> </li>
-      <li><%= link_to  "Profile", account_preference_path(@account, @preference) %> </li>
+      <li><%= link_to current_user.email, account_path(@account) %></p></li>
       <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
     </ul>
   </div>
 </nav>
 <%= render('layouts/errors', :object => @city) %>
-<h1>New City</h1>
+<h1 class="change">New City</h1>
 <div class="addcity">
   <%= form_for [@city] do |f| %>
     <p><%= f.label :name %>

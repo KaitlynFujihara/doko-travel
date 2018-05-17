@@ -6,10 +6,10 @@ class PreferencesController < ApplicationController
   end
 
   def new
+    @preference = Preference.new
     @account = current_account
     @interests = Interest.all
-    @preference = Preference.first
-    end
+end
 
   def create
     @interests= Interest.all
@@ -20,21 +20,20 @@ class PreferencesController < ApplicationController
        @preference.account_id = @account.id
        @preference.interest_ids = params[:preference][:interest_ids]
       @preference.save!
-      redirect_to account_preference_path(@account.id, @preference.id)
+      redirect_to account_preference_path(@account, @preference)
     end
-    redirect_to new_account_preferences_path
   end
   def show
     @account= current_account
-    @preference = Preference.first
+    @preference = Preference.find(params[:id])
   end
   def edit
     @account= current_account
-    @preference = Preference.first
+    @preference = Preference.find(params[:id])
    end
    def update
      @account= current_account
-     @preference = Preference.first
+     @preference = Preference.find(params[:id])
      @preference.interest_ids = params[:preference][:interest_ids]
      if @preference.update(preference_params)
        redirect_to account_preference_path

@@ -5,6 +5,6 @@ class PreferencesInterests < ActiveRecord::Migration[5.2]
       t.integer :interest_id
       t.timestamps
     end
-    remove_column :preferences, :interest, :string
+    # remove_column :preferences, :interest, :string
   end
 end

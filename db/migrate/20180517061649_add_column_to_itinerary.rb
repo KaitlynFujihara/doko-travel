@@ -1,5 +1,5 @@
-class AddColumnToItinerary < ActiveRecord::Migration[5.2]
-  def change
-    add_column :itineraries, :creator, :string
-  end
-end
+# class AddColumnToItinerary < ActiveRecord::Migration[5.2]
+#   def change
+#     add_column :itineraries, :creator, :string
+#   end
+# end

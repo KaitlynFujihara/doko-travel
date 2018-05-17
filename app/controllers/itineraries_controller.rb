@@ -4,7 +4,6 @@ class ItinerariesController < ApplicationController
   def index
     @account = current_account
     @itineraries = Itinerary.all
-    @preference= Preference.first
     @cities = City.all
   end
 
@@ -13,7 +12,7 @@ class ItinerariesController < ApplicationController
     @interests = Interest.all
     @account = current_account
     @cities = Itinerary.all
-    @preference= Preference.first
+
   end
 
   def create
@@ -35,7 +34,8 @@ class ItinerariesController < ApplicationController
  end
 
  def edit
-   @preference= Preference.first
+   @preference= Preference.find(params[:id])
+
    @itinerary= Itinerary.find(params[:id])
    @account = current_account
  end
@@ -60,7 +60,7 @@ end
  end
 
  def show
-   @preference= Preference.first
+   @preference= Preference.find(params[:id])
    @itinerary = Itinerary.find(params[:id])
    @interests = Interest.all
    @cities = City.all

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_17_072103) do
+ActiveRecord::Schema.define(version: 2018_05_17_150524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 2018_05_17_072103) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "itineraries", array: true
     t.integer "preference_id"
+    t.string "itineraries", array: true
   end
 
   create_table "admins", force: :cascade do |t|
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2018_05_17_072103) do
 
   create_table "interests", force: :cascade do |t|
     t.string "interest_title"
+    t.integer "preference_id"
   end
 
   create_table "interests_itineraries", force: :cascade do |t|
@@ -66,6 +67,8 @@ ActiveRecord::Schema.define(version: 2018_05_17_072103) do
   create_table "interests_preferences", force: :cascade do |t|
     t.integer "preference_id"
     t.integer "interest_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "itineraries", force: :cascade do |t|
@@ -82,7 +85,13 @@ ActiveRecord::Schema.define(version: 2018_05_17_072103) do
     t.datetime "updated_at", null: false
     t.boolean "firsttime"
     t.integer "account_id"
+  end
+
+  create_table "preferences_interests", force: :cascade do |t|
+    t.integer "preference_id"
     t.integer "interest_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -104,11 +113,6 @@ ActiveRecord::Schema.define(version: 2018_05_17_072103) do
     t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  create_table "welcomes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end

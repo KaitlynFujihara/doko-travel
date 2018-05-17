@@ -4,7 +4,7 @@ gem 'activestorage'
 gem "aws-sdk-s3", require: false
 gem "httparty"
 gem 'rest-client'
-ruby '2.5.1'
+ruby '2.4.1'
 gem 'devise', '~> 4.4.3'
 gem "paperclip", "~> 6.0.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
