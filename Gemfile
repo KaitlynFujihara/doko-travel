@@ -22,6 +22,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uikit-rails'
 gem 'semantic-ui-sass'
 gem 'inline_svg'
+gem 'acts_as_votable', '~> 0.11.1'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

@@ -67,6 +67,11 @@ end
    @account = current_account
    @rating = @itinerary.ratings.new :value => params[:value]
  end
+ def upvote
+   @itinerary = Itinerary.find(params[:id])
+   @itinerary.upvote_from current_user
+   redirect_to itineraries_path
+ end
 
 private
  def itinerary_params

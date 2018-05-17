@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   resources :cities
   resources :interests
   resources :itineraries do
-    resources :ratings
-  end
+    member do
+         put "like" => "itineraries#upvote"
+       end
+    end
   resources :accounts do
     resources :preferences
   end

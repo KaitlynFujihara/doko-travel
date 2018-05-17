@@ -14,7 +14,12 @@
 </nav>
 <h1 class="change">Itineraries</h1>
 <div class="container">
-<% @itineraries.each do |t| %>
+<% @itineraries.reverse_order.each do |t| %>
+<%= link_to like_itinerary_path(t), class: "like", method: :put do %>
+<button class="waves-effect waves-light btn"><i class="material-icons left">thumb_up</i>
+  <span><%= t.get_upvotes.size %></span>
+</button>
+<% end %>
   <h3><a><%=link_to t.title, itinerary_path(t) %></a></h3>
     <h4><% t.cities.each do |f| %>
   |<%= f.name %>|<% end %></h4>

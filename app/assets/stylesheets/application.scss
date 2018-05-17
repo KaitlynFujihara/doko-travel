@@ -166,7 +166,7 @@ html {
 //admin add city page
 .addcity, .additinerary {
   border: 2px solid #FFA5B4;
-  width: 50%;
+  width: 30%;
   margin: 0 auto;
   display: block;
   background-color: white;
@@ -253,7 +253,7 @@ html {
 }
 select{
   display: block;
-  height: 250px;
+  height: 100%
 }
 .background2 {
   background-image: url(fuji.jpg);
@@ -313,3 +313,8 @@ select{
 //   height: 120%;
 //   z-index: -1;
 // }
+
+
+select[multiple] {
+  height: 250px;
+}
