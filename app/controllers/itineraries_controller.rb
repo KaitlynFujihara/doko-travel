@@ -9,7 +9,6 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.new
     @interests = Interest.all
     @account = current_account
-
     @cities = Itinerary.all
   end
 
@@ -23,12 +22,16 @@ class ItinerariesController < ApplicationController
        @itinerary.account_id = @account.id
        @itinerary.interest_ids = params[:itinerary][:interest_ids]
        @itinerary.city_ids = params[:itinerary][:city_ids]
+       itinerary_id =  @itinerary.id
        @itinerary.save
-       binding.pryyo
        redirect_to itineraries_path
     else
       render :new
    end
+ end
+
+ def show
+   @itinerary= Itinerary.find(params[:id])
  end
 
  def edit
@@ -39,8 +42,8 @@ class ItinerariesController < ApplicationController
    @itinerary= Itinerary.find(params[:id])
    @itinerary.interest_ids = params[:itinerary][:interest_ids]
    if @itinerary.update(itinerary_params)
-     flash[:notice] = "#{@itinerary.name} was updated!"
-     redirect_to cities_path
+     flash[:notice] = "#{@itinerary.title} was updated!"
+     redirect_to itineraries_path
    else
      render :edit
   end
@@ -49,8 +52,8 @@ end
  def destroy
    @itinerary = Itinerary.find(params[:id])
    @itinerary.destroy
-    flash[:notice] = "#{@itinerary.name} was deleted."
-   redirect_to cities_path
+    flash[:notice] = "#{@itinerary.title} was deleted."
+   redirect_to itineraries_path
  end
 
  def show

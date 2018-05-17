@@ -1,0 +1,38 @@
+<nav>
+  <div class="nav-wrapper">
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><p>Welcome, <%= current_user.email %></p></li>
+      <% if current_user.admin == true %>
+      <li><%= link_to  "Admin Portal", cities_path %> </li>
+      <li><%= link_to  "Add New City", new_city_path %> </li>
+      <li><%= link_to  "Manage Categories", new_interest_path %> </li>
+      <% end %>
+      <li><%= link_to  "View Itineraries", itineraries_path %> </li>
+      <li><%= link_to  "Add New Itinerary", new_itinerary_path %> </li>
+      <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+    </ul>
+  </div>
+</nav>
+<div class="itinerary">
+  <h3><%= @itinerary.title %></h3>
+    <p>Recommended Duration: <%= @itinerary.length %> days </p>
+    <p><%= @itinerary.description %><p>
+    <h6>This Itinerary Includes:</h6>
+      <% @itinerary.cities.each do |f| %>
+    |<%= f.name %>|
+      <% end %>
+    <h6>This Itinerary Is Best For:</h6>
+    <% @itinerary.interests.each do |f| %>
+    |<%= f.interest_title %>|
+      <% end %>
+  <% if current_user.admin == true %>
+    <p><%= link_to "Edit", edit_itinerary_path(@itinerary) %> |
+      <%= link_to "Delete Itinerary", itinerary_path(@itinerary),
+                          :data => {:confirm => "Are you sure?",
+
+                                         :method => "delete"} %></p>
+    <% end %>
+</div>
+
+<div class="background2">
+</div>
