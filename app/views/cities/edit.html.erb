@@ -14,7 +14,7 @@
     </ul>
   </div>
 </nav>
-<h2>Edit <%= @city.name %></h2>
+<h1>Edit <%= @city.name %></h1>
 <div class="editcity">
   <%= form_for [@city] do |f| %>
     <p><%= f.label :name %>
@@ -23,9 +23,6 @@
     <%= f.text_area :description %>
     <%= f.label :length %>
     <%= f.text_field :length %>
+    <%= f.submit nil, class: "waves-effect waves-light btn" %>
     <% end %>
-</div>
-
-<div class="background2">
-
 </div>

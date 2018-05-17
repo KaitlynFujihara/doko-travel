@@ -13,9 +13,11 @@
     </ul>
   </div>
 </nav>
+<h3>Tell us about yourself!</h3>
 <div class="length">
   <%= form_for [@account, @preference]  do |f| %>
     <h5>Is this your first trip to Japan?</h5>
+    <%= f.label :firsttime %>
     <%= f.select :firsttime,['Yes', 'No'] %>
   <h5>How long will you be traveling?</h5>
   <%= f.number_field :length, :class => "form-length", placeholder: "days" %>

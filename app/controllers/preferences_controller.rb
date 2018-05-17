@@ -8,7 +8,7 @@ class PreferencesController < ApplicationController
   def new
     @account = current_account
     @interests = Interest.all
-    @preference = Preference.new
+    @preference = Preference.first
     end
 
   def create
@@ -22,17 +22,19 @@ class PreferencesController < ApplicationController
       @preference.save!
       redirect_to account_preference_path(@account.id, @preference.id)
     end
+    redirect_to new_account_preferences_path
   end
   def show
     @account= current_account
-    @preference= Preference.find(params[:id])
+    @preference = Preference.first
   end
   def edit
     @account= current_account
-    @preference= Preference.find(params[:id])
+    @preference = Preference.first
    end
    def update
-     @preference = Preference.find(params[:id])
+     @account= current_account
+     @preference = Preference.first
      @preference.interest_ids = params[:preference][:interest_ids]
      if @preference.update(preference_params)
        redirect_to account_preference_path

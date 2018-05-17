@@ -57,16 +57,6 @@
   position: absolute;
   z-index: 1;
   padding: 50px;
-h1 {
-  font-size: 150px;
- background: -webkit-linear-gradient(#FFA5B4, rgb(254, 161, 81));
- -webkit-background-clip: text;
- -webkit-text-fill-color: transparent;
-  outline: white;
-  font-family: 'Pacifico', cursive;
-  text-shadow: 5px 5px #ffffff;
-  text-align: center;
-  }
 }
 
 .signin, .signup{
@@ -84,7 +74,7 @@ h1 {
   text-align: center;
   a {
     color: gray;
-  };
+  }
   .waves-effect {
     width: 60px;
     font-size: 15px;
@@ -92,6 +82,7 @@ h1 {
     font-family: 'Raleway', sans-serif;
   }
 }
+
 h1 {
   font-size: 150px;
  background: -webkit-linear-gradient(#FFA5B4, rgb(254, 161, 81));
@@ -99,7 +90,7 @@ h1 {
  -webkit-text-fill-color: transparent;
   outline: white;
   font-family: 'Pacifico', cursive;
-  text-shadow: 5px 5px #FFA5B4;
+  text-shadow: 5px 5px white;
   text-align: center;
 }
 
@@ -189,8 +180,18 @@ html {
   textarea {
     height: 200px;
   }
-} h3 {
+ h3 {
   color: #FFA5B4;
+}h1 {
+  font-size: 150px;
+ background: -webkit-linear-gradient(#FFA5B4, rgb(254, 161, 81));
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+  outline: white;
+  font-family: 'Pacifico', cursive;
+  text-shadow: 5px 5px #FFA5B4;
+  text-align: center;
+  }
 }
 //admin show all cities page
 .showcities,  {
@@ -219,6 +220,7 @@ html {
 }
 
 .editcity {
+  width: 800px;
   border: 2px solid #FFA5B4;
   margin: 0 auto;
   display: block;

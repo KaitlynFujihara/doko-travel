@@ -29,6 +29,7 @@ Doko Travel is a web application that is targeted towards travelers that are goi
 
 ## Bugs
 * Some of the routing might by tricky
+* When asked to select "yes" or "no" on preferences page, it always selects "yes"
 
 ## License
 * Don't copy my repo and say it's yours, fool!
