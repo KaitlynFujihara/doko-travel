@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_17_002927) do
+ActiveRecord::Schema.define(version: 2018_05_17_061649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 2018_05_17_002927) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "preference_id"
     t.string "itineraries", array: true
+    t.integer "preference_id"
   end
 
   create_table "admins", force: :cascade do |t|
@@ -63,11 +63,17 @@ ActiveRecord::Schema.define(version: 2018_05_17_002927) do
     t.integer "itinerary_id"
   end
 
+  create_table "interests_preferences", force: :cascade do |t|
+    t.integer "preference_id"
+    t.integer "interest_id"
+  end
+
   create_table "itineraries", force: :cascade do |t|
     t.integer "account_id"
     t.integer "length"
     t.string "title"
     t.string "description"
+    t.string "creator"
   end
 
   create_table "preferences", force: :cascade do |t|
@@ -76,13 +82,7 @@ ActiveRecord::Schema.define(version: 2018_05_17_002927) do
     t.datetime "updated_at", null: false
     t.boolean "firsttime"
     t.integer "account_id"
-  end
-
-  create_table "preferences_interests", force: :cascade do |t|
-    t.integer "preference_id"
     t.integer "interest_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -5,13 +5,19 @@ class CitiesController < ApplicationController
     end
 
   def index
+    @account = current_account
     @cities = City.all
     @interests = Interest.all
+    @preference= Preference.first
+
   end
 
   def new
+    @account = current_account
     @city = City.new
     @interests = Interest.all
+    @preference= Preference.first
+
   end
 
   def create
@@ -25,7 +31,10 @@ class CitiesController < ApplicationController
  end
 
  def edit
+   @account = current_account
    @city= City.find(params[:id])
+   @preference= Preference.first
+
  end
 
  def update
@@ -49,6 +58,8 @@ end
  def show
    @city = City.find(params[:id])
    @interests = Interest.all
+   @preference= Preference.first
+
  end
 
 private

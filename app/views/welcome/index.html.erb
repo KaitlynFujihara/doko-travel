@@ -3,7 +3,7 @@
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><p>Welcome, <%= current_user.email %></p></li>
       <% if current_user.admin == true %>
-      <li><%= link_to  "Admin Portal", cities_path %> </li>
+      <li><%= link_to  "View Cities", cities_path %> </li>
       <li><%= link_to  "Add New City", new_city_path %> </li>
       <li><%= link_to  "Manage Categories", new_interest_path %> </li>
       <% end %>

@@ -1,6 +1,6 @@
 class Preference < ApplicationRecord
-  belongs_to :account
-  has_many :interests
+has_and_belongs_to_many :interests
+belongs_to :account
 
   validates :length, :inclusion => 1..14;
   validates :interests, :presence => true;

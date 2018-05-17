@@ -1,6 +1,7 @@
 class Account < ApplicationRecord
     has_one :user
     has_many :preferences
+    has_many :itineraries
 
     def city_checker(length, firsttime)
       if (length < 5) && (firsttime == true)

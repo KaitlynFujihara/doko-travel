@@ -3,12 +3,12 @@
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><p>Welcome, <%= current_user.email %></p></li>
       <% if current_user.admin == true %>
-      <li><%= link_to  "Admin Portal", cities_path %> </li>
+      <li><%= link_to  "View Cities", cities_path %> </li>
       <li><%= link_to  "Add New City", new_city_path %> </li>
       <li><%= link_to  "Manage Categories", new_interest_path %> </li>
       <% end %>
       <li><%= link_to  "View Itineraries", itineraries_path %> </li>
-      <li><%= link_to  "Add New Itinerary", new_itinerary_path %> </li>
+      <li><%= link_to  "Profile", account_preference_path(@account, @preference) %> </li>
       <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
     </ul>
   </div>
@@ -19,11 +19,11 @@
     <p><%= @itinerary.description %><p>
     <h6>This Itinerary Includes:</h6>
       <% @itinerary.cities.each do |f| %>
-    |<%= f.name %>|
+    <p><%= f.name %><p>
       <% end %>
     <h6>This Itinerary Is Best For:</h6>
     <% @itinerary.interests.each do |f| %>
-    |<%= f.interest_title %>|
+    <p><%= f.interest_title %><p>
       <% end %>
   <% if current_user.admin == true %>
     <p><%= link_to "Edit", edit_itinerary_path(@itinerary) %> |
@@ -34,5 +34,5 @@
     <% end %>
 </div>
 
-<div class="background2">
+<div class="pattern">
 </div>

@@ -1,0 +1,36 @@
+<nav>
+  <div class="nav-wrapper">
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><p>Welcome, <%= current_user.email %></p></li>
+      <% if current_user.admin == true %>
+      <li><%= link_to  "View Cities", cities_path %> </li>
+      <li><%= link_to  "Add New City", new_city_path %> </li>
+      <li><%= link_to  "Manage Categories", new_interest_path %> </li>
+      <% end %>
+      <li><%= link_to  "View Itineraries", itineraries_path %> </li>
+      <li><%= link_to  "Profile", account_preference_path(@account, @preference) %> </li>
+      <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+    </ul>
+  </div>
+</nav>
+<%= render('layouts/errors', :object => @itinerary) %>
+<h1>Edit Itinerary</h1>
+<div class="additinerary">
+  <%= form_for [@itinerary] do |f| %>
+    <p><%= f.label :title %>
+      <%= f.hidden_field :itinerary_id, value: @itinerary.id %>
+    <%= f.text_field :title %>
+    <%= f.label :creator %>
+    <%= f.text_field :creator %>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    <%= f.label :length %>
+    <%= f.text_field :length %>
+    <%= f.label :interests%>
+    <%= f.collection_select :interest_ids, Interest.all, :id, :interest_title,{ class: "browser-default"},{ :multiple => true } %>
+    <%= f.label :cities%>
+    <%= f.collection_select :city_ids, City.all, :id, :name,{ class: "browser-default"},{ :multiple => true } %>
+    <br>
+     <%= f.submit nil, class: "waves-effect waves-light btn" %>
+     <% end %>
+</div>

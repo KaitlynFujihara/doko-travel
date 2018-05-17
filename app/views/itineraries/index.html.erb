@@ -3,20 +3,22 @@
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><p>Welcome, <%= current_user.email %></p></li>
       <% if current_user.admin == true %>
-      <li><%= link_to  "Admin Portal", cities_path %> </li>
+      <li><%= link_to  "View Cities", cities_path %> </li>
       <li><%= link_to  "Add New City", new_city_path %> </li>
       <li><%= link_to  "Manage Categories", new_interest_path %> </li>
       <% end %>
       <li><%= link_to  "View Itineraries", itineraries_path %> </li>
-      <li><%= link_to  "Add New Itinerary", new_itinerary_path %> </li>
+      <li><%= link_to  "Profile", account_preference_path(@account, @preference) %> </li>
       <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
     </ul>
   </div>
 </nav>
+<h1 class="change">Itineraries</h1>
 <div class="container">
-<h1>Itineraries</h1>
 <% @itineraries.each do |t| %>
   <h3><a><%=link_to t.title, itinerary_path(t) %></a></h3>
+  <h5>Created by: <%= t.creator %>
+  </h5>
   <p>Recommended Duration: <%= t.length %> days </p>
   <p><%= t.description %><p>
     <% t.cities.each do |f| %>

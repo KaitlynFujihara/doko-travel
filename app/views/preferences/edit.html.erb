@@ -1,0 +1,27 @@
+<nav>
+  <div class="nav-wrapper">
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><p>Welcome, <%= current_user.email %></p></li>
+      <% if current_user.admin == true %>
+      <li><%= link_to  "View Cities", cities_path %> </li>
+      <li><%= link_to  "Add New City", new_city_path %> </li>
+      <li><%= link_to  "Manage Categories", new_interest_path %> </li>
+      <% end %>
+      <li><%= link_to  "View Itineraries", itineraries_path %> </li>
+      <li><%= link_to  "Profile", account_preference_path(@account, @preference) %> </li>
+      <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+    </ul>
+  </div>
+</nav>
+<div class="length">
+  <%= form_for [@account, @preference]  do |f| %>
+    <h5>Is this your first trip to Japan?</h5>
+    <%= f.select :firsttime,['Yes', 'No'] %>
+  <h5>How long will you be traveling?</h5>
+  <%= f.number_field :length, :class => "form-length", placeholder: "days" %>
+  <h5>What are you most interested in?</h5>
+  <%= f.collection_select :interest_ids, Interest.all, :id, :interest_title,{ class: "browser-default"}, { :multiple => true } %>
+  <br>
+  <%= f.submit "Go",  :class => "waves-effect waves-light btn" %>
+<% end %>
+</div>

@@ -1,33 +1,44 @@
 class PreferencesController < ApplicationController
-  helper_method :tokyo_checker
+
   def index
     @account = current_account
-    @preference = Preference.new
-    @interests = Interest.all
-    @cities = City.all
-    @preferences = @account.preferences
+    @preferences = Preference.all
   end
 
   def new
-    @interests = Interest.all
     @account = current_account
+    @interests = Interest.all
     @preference = Preference.new
-    respond_to do |format|
-    format.html { render 'new.html.erb'}
-    format.js { render 'index.js.erb' }
     end
-  end
 
   def create
     @interests= Interest.all
     @account = current_account
     session[:user_id] = @account.id
      if defined?(session[:user_id])
-       @preference = @account.preferences.new(preference_params)
+       @preference = Preference.new(preference_params)
+       @preference.account_id = @account.id
        @preference.interest_ids = params[:preference][:interest_ids]
-       @preference.save
+      @preference.save!
+      redirect_to account_preference_path(@account.id, @preference.id)
     end
-    redirect_to account_preferences_path
+  end
+  def show
+    @account= current_account
+    @preference= Preference.find(params[:id])
+  end
+  def edit
+    @account= current_account
+    @preference= Preference.find(params[:id])
+   end
+   def update
+     @preference = Preference.find(params[:id])
+     @preference.interest_ids = params[:preference][:interest_ids]
+     if @preference.update(preference_params)
+       redirect_to account_preference_path
+     else
+       render :edit
+    end
   end
   def preference_params
     params.require(:preference).permit(:length, :firsttime, :interest_id)

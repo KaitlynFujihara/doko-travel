@@ -3,9 +3,17 @@ class InterestsController < ApplicationController
     before_action do
       redirect_to root_path unless current_user && current_user.admin?
     end
+  def index
+    @account = current_account
+    @preference= Preference.first
+
+  end
   def new
+    @account = current_account
     @interest = Interest.new
     @interests = Interest.all
+    @preference= Preference.first
+
   end
 
   def create
@@ -23,10 +31,13 @@ class InterestsController < ApplicationController
   end
 
   def edit
+    @preference= Preference.first
+    @account = current_account
     @interest = Interest.find(params[:id])
   end
 
   def update
+    @account = current_account
     @interest = Interest.find(params[:id])
     if @interest.update(interest_params)
       flash[:notice] = "Interest successfully updated!"

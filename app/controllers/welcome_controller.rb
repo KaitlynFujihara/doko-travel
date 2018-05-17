@@ -3,6 +3,7 @@ class WelcomeController < ApplicationController
 
   def index
     @cities = City.all
+    @account=current_account
     render :index
   end
 
